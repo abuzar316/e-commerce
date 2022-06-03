@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('common/headerlink') -%>
+        <title>e comm</title>
+</head>
+
+<body>
+    <%- include('common/navbar') -%>
+        <% if(msg !='' ) { %>
+            <div class="container pt-4">
+                <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                    <%= msg %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            <% } %>
+                <div class="py-4 container">
+                    <div class=" m-auto shadow p-4 rounded">
+                        <form method="post" action="">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" name="email" id="">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">First name</label>
+                                        <input type="text" class="form-control" name="first_name" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Mobile</label>
+                                        <input type="text" class="form-control" name="mobile" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Password</label>
+                                        <input type="text" name="password" class="form-control" id="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">username</label>
+                                        <input type="text" class="form-control" name="username" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" id="">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Gender</label>
+                                        <select class="form-select" name="gender" aria-label="Default select example">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Confirm Password</label>
+                                        <input type="password" name="cpassword" class="form-control" id="">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </form>
+                    </div>
+                </div>
+                <%- include('common/footerlink') -%>
+
+</body>
+
+</html>

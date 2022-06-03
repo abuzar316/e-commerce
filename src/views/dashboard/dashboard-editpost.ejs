@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+
+                <div class="main-body">
+                    <% if(msg !='' ) { %>
+                        <div class="container pt-4">
+                            <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                                <%= msg %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <% } %>
+
+                    <div class="col-10 py-5 m-auto">
+                        <form action="" method="post"  enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Title</label>
+                                <input type="text" name="title" value="<%= productDB.title %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Description</label>
+                                <input type="text" name="description" value="<%= productDB.description %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">price</label>
+                                <input type="text" name="price" value="<%= productDB.price %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">old category</label>
+                                <input type="text" name="oldcategory" value="<%= productDB.category %>" class="form-control" readonly="readonly" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">category</label>
+                                <select class="form-select" name="category" value aria-label="Default select example">
+                                    <option value="books">Books</option>
+                                    <option value="mobiles and tablets">Mobiles and Tablets</option>
+                                    <option value="electronics">Electronics</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">old Image</label><br />
+                                <input type="hidden" name="old_image" value="<%= productDB.image %>" >
+                                <img src="/images/<%= productDB.image %>"  class="img-thumbnail old-edit-img mt-1" alt="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Image</label>s
+                                <input type="file" name="file" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+
+                <div class="main-body">
+                    <div class="col-10 py-5 m-auto">
+
+                        <form action="" method="post">
+                            <div class="row justify-content-between">
+                                <div class="col-4 py-2">
+                                    <select class="form-select" onchange="this.form.submit()" name="limit"
+                                        aria-label="Default select example">
+                                        <option disabled selected value>-- select an option --</option>
+                                        <% limitval.forEach((e)=> { %>
+                                            <option value="<%= e %>">
+                                                <%= e %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-4 py-2">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="basic-url" placeholder="Search">
+                                    </div>
+                                </div> -->
+                            </div>
+                            <table class="table table-bordered table-striped table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th> <input type="checkbox" id="allselect"> All</th>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Created By</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% allproduct.forEach((e , i)=> {%>
+                                        <tr>
+                                            <th width="80">
+                                                <input name="userid" id="allselected" type="checkbox"
+                                                    value="<%= e._id %>">
+                                            </th>
+                                            <th>
+                                                <%= i+1 %>
+                                            </th>
+                                            <th>
+                                                <%= e.title %>
+                                            </th>
+                                            <th>
+                                                <%= e.createdby %>
+                                            </th>
+                                            <th class="text-center">
+                                                <a href="editpost/<%= e._id %>" class="text-success"><i
+                                                        class="fas fa-edit fa-lg mx-1"></i></a>
+                                                <a href="deletepost/<%= e._id %>" class="text-danger"><i
+                                                        class="fas fa-trash fa-lg mx-1"></i></a>
+                                            </th>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                            <div>
+                                <button class="btn btn-primary" type="submit"> Delete Product </button>
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+            <script>
+                const allselect = document.getElementById('allselect')
+
+                allselect.onclick = () => {
+                    if (allselect.checked) {
+                        const allselected = document.querySelectorAll('#allselected');
+                        allselected.forEach((e) => {
+                            e.checked = true;
+                        })
+                    } else {
+                        const allselected = document.querySelectorAll('#allselected');
+                        allselected.forEach((e) => {
+                            e.checked = false;
+                        })
+                    }
+                }
+            </script>
+</body>
+
+</html>

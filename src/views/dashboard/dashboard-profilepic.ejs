@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+                <div class="main-body">
+                    <% if(msg !='' ) { %>
+                        <div class="container pt-4">
+                            <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                                <%= msg %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <% } %>
+
+                            <div class="col-9 m-auto my-4 p-4 shadow">
+                                <form action="" method="post" enctype="multipart/form-data">
+
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Profile</label><br />
+                                        <input type="hidden" name="old_profile" value="<%= profile_pic %>" >
+                                        <img width="250" src="/images/<%= profile_pic %>"
+                                            class="img-thumbnail old-edit-img mt-1" alt="Profile Pic Not upload">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Upload Profile</label>s
+                                        <input type="file" name="file" class="form-control" id="">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+
+                                </form>
+                            </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+</body>
+
+</html>

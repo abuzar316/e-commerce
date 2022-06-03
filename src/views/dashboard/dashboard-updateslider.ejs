@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <link rel="stylesheet" href="/assets/css/mystyle.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+
+                <div class="main-body">
+                    <% if( msg != '' ) { %>
+                        <div class="container pt-4">
+                            <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                                <%= msg %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                            </div>
+                        </div>
+                    <% } %>
+                            <div class="col-10 py-5 m-auto">
+                                <form action="" method="post" enctype="multipart/form-data">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Heading</label>
+                                        <input type="text" name="slide_heading" value="<%= slideDB.slide_heading %>"  class="form-control" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">sub heading</label>
+                                        <input type="text" name="slide_subheading" value="<%= slideDB.slide_subheading %>" class="form-control" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">old Image</label><br />
+                                        <input type="hidden" name="old_image" value="<%= slideDB.slide_image %>" >
+                                        <img width="400" src="/images/<%= slideDB.slide_image %>"  class="img-thumbnail old-edit-img mt-1" alt="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Slide Image</label>s
+                                        <input type="file" name="file" class="form-control" id="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+</body>
+
+</html>

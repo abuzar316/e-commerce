@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('common/headerlink') -%>
+
+        <title>e comm</title>
+</head>
+
+<body>
+    <%- include('common/navbar') -%>
+
+        <!--**************************Hero Slider Start ********************* -->
+        <section class="slider-1">
+            <div class="hero-slider owl-carousel owl-theme">
+                <% allslider.forEach((e)=>{%>
+                    <div class="hero-slider-item">
+                        <div class="hero-slider-img"><img src="images/<%= e.slide_image %>" alt="Slider"></div>
+                        <div class="hero-slider-text">
+                            <h2>
+                                <%= e.slide_heading %>
+                            </h2>
+                            <p>
+                                <%= e.slide_subheading %>
+                            </p>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </section>
+        <!--**************************Hero Slider end *********************** -->
+        <section class="py-4">
+            <div class="container">
+                <div class="row">
+                    <% allproduct.forEach((e)=>{%>
+                        <div class="col-md-3">
+                            <div class="card my-2">
+                                <div class="pro-duct-img">
+                                    <img src="/images/<%= e.image %>" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= e.title %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= e.description %>
+                                    </p>
+                                    <p class="card-text">
+                                        price : <%= e.price %>
+                                    </p>
+                                    <p class="card-text">Category : <%= e.category %>
+                                    </p>
+                                    <a href="/add-to-cart/<%= e._id %>" class="btn btn-primary">Add To Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+            </div>
+        </section>
+
+        <%- include('common/footer') -%>
+
+            <%- include('common/footerlink') -%>
+                <script>
+                    $('.hero-slider').owlCarousel({
+                        loop: true,
+                        margin: 10,
+                        nav: true,
+                        dots: false,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoplayHoverPause: true,
+                        responsive: {
+                            0: {
+                                items: 1
+                            },
+                            600: {
+                                items: 1
+                            },
+                            1000: {
+                                items: 1
+                            }
+                        }
+                    })
+                    $(".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+                    $(".owl-next").html('<i class="fa fa-chevron-right"></i>');
+                </script>
+</body>
+
+</html>

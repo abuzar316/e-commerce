@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <title>e comm</title>
+</head>
+
+<body>
+    <%- include('../common/navbar') -%>
+        <div class="container">
+            <h1> <%= username %> </h1>
+            <div class="row py-4">
+                <div class="col-md-4">
+                    <div class="shadow p-3 text-center">
+                        <a href="user-details" class="text-dark">
+                            <i class="fa-solid fa-user h1"></i>
+                            <h3>information</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="shadow p-3 text-center">
+                        <a href="user-address" class="text-dark">
+                            <i class="fa-solid fa-address-card h1"></i>
+                            <h3>Address</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="shadow p-3 text-center">
+                        <a href="#" class="text-dark">
+                            <i class="fa-solid fa-address-card h1"></i>
+                            <h3>Order History</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../common/footer') -%>
+
+            <%- include('../common/footerlink') -%>
+
+</body>
+
+</html>

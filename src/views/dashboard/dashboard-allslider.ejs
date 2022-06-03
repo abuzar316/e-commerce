@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+
+                <div class="main-body">
+                    <div class="col-10 py-5 m-auto">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Heading</th>
+                                    <th>Slide Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% allslideDB.forEach((e , i)=> {%> 
+                                    <tr>
+                                        <th class="align-middle"><%= i+1 %> </th>
+                                        <th class="align-middle"><%= e.slide_heading %> </th>
+                                        <th>  <img width="150" src="/images/<%= e.slide_image %> " alt=""> </th>
+                                        <th class="text-center align-middle">
+                                            <a href="/dashboard/all-slide/update/<%= e._id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+                                            <a href="/dashboard/all-slide/delete/<%= e._id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+                                        </th>
+                                    </tr>
+                                    <% }) %> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+</body>
+
+</html>

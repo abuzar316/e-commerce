@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('common/headerlink') -%>
+    <title>e comm</title>
+</head>
+
+<body>
+    <%- include('common/navbar') -%>
+    <% if(msg != '') { %>
+        <div class="container pt-4">
+            <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                <%= msg %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <% } %>
+    <div class="py-4">
+        <div class="col-6 m-auto shadow p-4 rounded">
+            <form method="post" action="">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">New Password</label>
+                    <input type="password" class="form-control" name="newpassword" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">New Confirm Password</label>
+                    <input type="password" class="form-control" name="newcpassword" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+        </div>
+    </div>
+    <%- include('common/footerlink') -%>
+</body>
+
+</html>

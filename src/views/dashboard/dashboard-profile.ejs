@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+                <div class="main-body">
+                    <% if(msg !='' ) { %>
+                        <div class="container pt-4">
+                            <div class="alert <%= addClass %> alert-dismissible fade show" role="alert">
+                                <%= msg %>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                        <% } %>
+
+                    <div class="col-9 m-auto my-4 p-4 shadow">
+                        <form action="" method="post">
+                            <div class="mb-3">
+                                <label for="" class="form-label">username</label>
+                                <input type="text" name="username" value="<%= userDB.username %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" name="email" value="<%= userDB.email %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">First Name</label>
+                                <input type="text" name="first_name" value="<%= userDB.first_name %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Last Name</label>
+                                <input type="text" name="last_name" value="<%= userDB.last_name %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Mobiel No</label>
+                                <input type="text" name="mobile" value="<%= userDB.mobile %>" class="form-control" id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Gender</label>
+                                <input type="text" name="gender" value="<%= userDB.gender %>" readonly="readonly" class="form-control"  id="">
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Role</label>
+                                <input type="text" name="gender" value="<%= userDB.role %>" readonly="readonly" class="form-control"  id="">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+        <%- include('../common/footerlink') -%>
+</body>
+
+</html>

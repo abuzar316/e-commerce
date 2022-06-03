@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <link rel="stylesheet" href="/assets/css/mystyle.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <title> Dashboard </title>
+</head>
+
+<body>
+    <%- include('../common/dashboardnavbar') -%>
+        <div class="main-con">
+            <%- include('../common/dashboard-sidebar') -%>
+
+                <div class="main-body">
+                    <h1>update user</h1>
+                    <div class="col-9 m-auto">
+                        <div class="  m-auto shadow p-4 rounded">
+                            <form method="post" action="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Email address</label>
+                                            <input type="email" class="form-control" value="<%= userDB.email %>" name="email" id="">
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">First name</label>
+                                            <input type="text" class="form-control" value="<%= userDB.first_name %>" name="first_name" id="">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Mobile</label>
+                                            <input type="text" class="form-control" value="<%= userDB.mobile %>" name="mobile" id="">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Password</label>
+                                            <input type="text" name="password" value="" class="form-control" id="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">username</label>
+                                            <input type="text" class="form-control" value="<%= userDB.username %>" name="username" id="">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" value="<%= userDB.last_name %>" name="last_name" id="">
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Gender</label>
+                                            <select class="form-select" name="gender" aria-label="Default select example">
+                                                <option value="male" <%= userDB.gender == 'male'? "selected":""%> >Male</option>
+                                                <option value="female" <%= userDB.gender == 'female'? "selected":""%> >Female</option>
+                                                <option value="other" <%= userDB.gender == 'other'? "selected":""%> >Other</option>
+                                            </select>
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="" class="form-label">Confirm Password</label>
+                                            <input type="password" name="cpassword" class="form-control" id="">
+                                        </div>
+                                    </div>
+                                </div>
+    
+    
+                                <button type="submit" class="btn btn-primary">Update user</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+
+
+
+        <%- include('../common/footerlink') -%>
+
+</body>
+
+</html>

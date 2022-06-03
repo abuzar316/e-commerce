@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%- include('../common/headerlink') -%>
+        <title>e comm</title>
+</head>
+
+<body>
+    <%- include('../common/navbar') -%>
+        <div class="container">
+            <!-- <h2> <%= alladdress.length %> </h2> -->
+            <div class="row py-4">
+                <% if(alladdress.length <= 0){ %>
+                    <h1>No address</h1>
+                <% } %>
+                <% alladdress.forEach((e)=>{%>
+                    <div class="col-md-4">
+                        <div class="card-addre shadow p-3">
+                            <h5> <%= e.alias %> </h5>
+                            <p class="m-0"><%= e.fname %> <%= e.lname %></p>
+                            <p class="m-0"> <%= e.address %> </p>
+                            <p class="m-0"><%= e.state %></p>
+                            <p class="m-0"> <%= e.mobile %> </p>
+                            <hr>
+                            <a href="user-address-update/<%= e._id %>" class="btn btn-primary">Update</a>
+                            <a href="user-address-delete/<%= e._id %>" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                <% }) %>
+                
+            </div>
+            <div class="py-4"> 
+                <a href="user-address-add" class="h5"> <i class="fa-solid fa-circle-plus"></i> Create New Address</a>
+            </div>
+        </div>
+      
+        <%- include('../common/footer') -%>
+
+            <%- include('../common/footerlink') -%>
+
+</body>
+
+</html>
